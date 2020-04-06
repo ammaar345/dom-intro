@@ -1,15 +1,25 @@
-// get a reference to the sms or call radio buttons
+// get a reference to the sms and call radio buttons
 
 // get refences to all the settings fields
-
+const callCost=document.querySelector(".callCostSetting");
+const smsCost=document.querySelector(".smsCostSetting");
+const warnLevel=document.querySelector(".warningLevelSetting");
+const critLevel=document.querySelector(".criticalLevelSetting");
 //get a reference to the add button
-
+const btnAdd=document.querySelector(".button");
 //get a reference to the 'Update settings' button
-
+const btnUpdate=document.querySelector(".updateSettings");
 // create a variables that will keep track of all the settings
 
 // create a variables that will keep track of all three totals.
-
+const callTotalCost=(".callTotalSettings");
+const smsTotalCost=(".smsTotalSettings");
+const totalCost=document.querySelector(".totalSettings");
+const dangerLevel=document.querySelector(".color")
+btnAdd.addEventListener("click",function(){
+   
+    
+})
 //add an event listener for when the 'Update settings' button is pressed
 
 //add an event listener for when the add button is pressed
