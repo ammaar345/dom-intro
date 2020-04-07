@@ -34,10 +34,9 @@ function TCostOfBill(billItemType) {
         smsTotalNew += smsCostVal;
         totalCostAll += smsCostVal;
     }
-
-    //round to two decimals
-    var roundBill = totalCostAll.toFixed(2)
-    return roundBill;
+//round to two decimals
+     var roundBill = totalCostAll.toFixed(2)
+ return roundBill;
 }
 function styleofTotal(roundBill) {
     const current = Number(roundBill);
@@ -58,11 +57,8 @@ function calcBtnClick() {
     // get a reference to the sms or call radio buttons
     var radioSmsCall = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     var item = radioSmsCall.value;
-
-    TCostOfBill(item);
-
-
-    callCostTotal.innerHTML = (callTotalNew.toFixed(2))
+TCostOfBill(item);
+callCostTotal.innerHTML = (callTotalNew.toFixed(2))
     smsCostTotal.innerHTML = (smsTotalNew.toFixed(2));
     totalCost.innerHTML = (totalCostAll).toFixed(2);//working
     styleofTotal(totalCostAll);
@@ -72,9 +68,6 @@ function setValues() {
     callTotalNew = 0;
     smsTotalNew = 0;
     totalCostAll = 0;
-    //callCostTotal.innerHTML = (callTotalNew).toFixed(2);
-   // smsCostTotal.innerHTML = (smsTotalNew).toFixed(2);
-    //totalCost.innerHTML = (totalCostAll).toFixed(2);
     callCostVal = Number(callCost.value);
     smsCostVal = Number(smsCost.value);
     warnLevelTxt = Number(warnLevel.value);
