@@ -7,10 +7,9 @@ const callTotalElement=document.querySelector(".callTotalOne");
 const smsTotalElement=document.querySelector(".smsTotalOne");
 const total=document.querySelector(".totalOne");
 const color=document.querySelector(".red");
-var callsTotal=0;
-var smsTotal=0;
-var icountSms=0;
-    var icountCall=0;
+bTotal=0;
+    callsTotal=0;
+    smsTotal=0;
 //add an event listener for when the add button is pressed
 function totPhoneBill(billSt){
     // logic goes here
@@ -21,21 +20,24 @@ function totPhoneBill(billSt){
     var billItems = billSt.split(",");
     // a variable for the total phone bill.
   //  var totalBill = 41.25;
-    bTotal=0;
-    callsTotal=0;
-    smsTotal=0;
+    
     //loop over all the bill items
     for (var i=0;i<billItems.length;i++){
         var billItem = billItems[i].trim();
         if (billItem === "call"){
             callsTotal += 2.75;
             bTotal+=2.75;
-            icountCall++;
+           
         }
         else if (billItem === "sms"){
             smsTotal += 0.75;
             bTotal+=0.75;
-            icountSms++
+            
+        }
+        else{
+            smsTotal=smsTotal;
+            bTotal=bTotal;
+            callsTotal=callsTotal;
         }
     }
     //round to two decimals
