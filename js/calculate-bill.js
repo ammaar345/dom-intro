@@ -38,7 +38,7 @@ function styleTotal(roundedBillTotal){
         //make red
         colorChange.classList.add("danger")
     } 
-    else if(currTotal>=20 && currTotal<30)
+    else if(currTotal>20 && currTotal<30)
     {//make orange
 colorChange.classList.add("warning");
     }

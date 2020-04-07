@@ -30,7 +30,7 @@ function stylingTotal(roundBill) {
     colorChanger.classList.remove("danger");
     colorChanger.classList.remove("warning");
 
-    if (currentTot > 30 && currentTot < 50) {
+    if (currentTot >= 30 && currentTot < 50) {
         //make orange
         colorChanger.classList.add("warning");
     }

@@ -47,7 +47,7 @@ function styledTotal(roundedBill){
     color.classList.remove("danger");
     color.classList.remove("warning");
     
-  if(currentTotal>30 && currentTotal<50){
+  if(currentTotal>=30 && currentTotal<50){
       //make orange
       color.classList.add("warning");
   } 
