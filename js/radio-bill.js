@@ -1,4 +1,4 @@
-// get a reference to the sms or call radio buttons
+
 
 //get a reference to the add button
 const radAddBtn = document.querySelector(".radioBillAddBtn");
@@ -9,22 +9,14 @@ const total2 = document.querySelector(".totalTwo");
 const colorChanger = document.querySelector(".orange");
 var cTotal = 0;
 var sTotal = 0;
-
 var billTotal2=0;
 function tPhoneBill(billItemType) {
-
-
-    // billItemType will be 'call' or 'sms'
-    
-    if (billItemType === "call") {
-
-       
+  // billItemType will be 'call' or 'sms'
+     if (billItemType === "call") {     
 cTotal+=2.75;
 billTotal2+=2.75;
     }
-    else if (billItemType === "sms") {
-
-        
+    else if (billItemType === "sms") {       
 sTotal+=0.75;
 billTotal2+=0.75;
     }
@@ -49,21 +41,15 @@ function stylingTotal(roundBill) {
 }
 
 function calculateBtnClick() {
-
+// get a reference to the sms or call radio buttons
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     var billItemType = checkedRadioBtn.value;
     tPhoneBill(billItemType);
-    
-    // var chk=checkedRadioBtn.value;
-
-
-    //  tPhoneBill(checkedRadioBtn.value);
     callTotal2.innerHTML=(cTotal).toFixed(2);
 smsTotal2.innerHTML=(sTotal).toFixed(2);
     total2.innerHTML = (billTotal2).toFixed(2);
 
     stylingTotal(billTotal2);
-    //call,call,call,call,call,call,call,call,call,call
 }
 radAddBtn.addEventListener("click", calculateBtnClick);
 //add an event listener for when the add button is pressed
