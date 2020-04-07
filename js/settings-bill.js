@@ -9,13 +9,13 @@ const smsCostTotal = document.querySelector(".smsTotalSettings");
 const totalCost = document.querySelector(".totalSettings");
 const dangerLevel = document.querySelector(".colorCh");
 
-var callCostVal = 2.75;
-var smsCostVal = 0.75;
+var callCostVal = 0;
+var smsCostVal = 0;
 var smsTotalNew = 0;
 var callTotalNew = 0;
 var totalCostAll = 0;
-var warnLevelTxt = 30;
-var critLevelTxt = 50;
+var warnLevelTxt = 0;
+var critLevelTxt = 0;
 
 
 function TCostOfBill(billItemType) {
