@@ -5,7 +5,7 @@ const addBtn=document.querySelector(".addToBillBtn");
 //create a variable that will keep track of the total bill
 const callTotalElement=document.querySelector(".callTotalOne");
 const smsTotalElement=document.querySelector(".smsTotalOne");
-const totalE=document.querySelector(".totalOne");
+const total=document.querySelector(".totalOne");
 const color=document.querySelector(".red");
 bTotal=0;
 callsTotal=0;
@@ -40,7 +40,7 @@ function styledTotal(roundedBill){
       //make orange
       color.classList.add("warning");
   } 
-  else if(currentTotal>=50 )
+  else if(currentTotal>50 )
   {//make red
 color.classList.add("danger");
   }
@@ -49,10 +49,12 @@ color.classList.add("danger");
 function calculateBtnClicked(){
     var billSt=enterTxt.value;
     const billTotal=totPhoneBill(billSt);
-    totalE.innerHTML = billTotal.toFixed(2);
+    total.innerHTML = billTotal;
     callTotalElement.innerHTML=(callsTotal).toFixed(2);
     smsTotalElement.innerHTML=(smsTotal).toFixed(2);
-    styledTotal(billTotal);
+    
+    
+   styledTotal(billTotal);
  
 }
     addBtn.addEventListener("click",calculateBtnClicked);
