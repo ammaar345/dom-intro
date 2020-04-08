@@ -83,7 +83,7 @@ function setValues() {
     smsCostVal = Number(smsCost.value);
     warnLevelTxt = Number(warnLevel.value);
     critLevelTxt = (Number)(critLevel.value);
-    styleofTotal(totalCostAll)
+    styleofTotal(totalCostAll);
     alert("Settings Updated.");
 }
 btnUpdate.addEventListener("click", setValues);
