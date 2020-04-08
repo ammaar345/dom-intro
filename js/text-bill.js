@@ -5,39 +5,26 @@ const addBtn=document.querySelector(".addToBillBtn");
 //create a variable that will keep track of the total bill
 const callTotalElement=document.querySelector(".callTotalOne");
 const smsTotalElement=document.querySelector(".smsTotalOne");
-const total=document.querySelector(".totalOne");
+const totalE=document.querySelector(".totalOne");
 const color=document.querySelector(".red");
 bTotal=0;
-    callsTotal=0;
-    smsTotal=0;
-//add an event listener for when the add button is pressed
+callsTotal=0;
+smsTotal=0;
 function totPhoneBill(billSt){
     // logic goes here
-        
-    
-    //alert(billString)
-    //split the string
     var billItems = billSt.split(",");
-    // a variable for the total phone bill.
-  //  var totalBill = 41.25;
-    
-    //loop over all the bill items
+    // a variable for the total phone bill
     for (var i=0;i<billItems.length;i++){
         var billItem = billItems[i].trim();
         if (billItem === "call"){
             callsTotal += 2.75;
             bTotal+=2.75;
-           
+            
         }
         else if (billItem === "sms"){
             smsTotal += 0.75;
             bTotal+=0.75;
             
-        }
-        else{
-            smsTotal=smsTotal;
-            bTotal=bTotal;
-            callsTotal=callsTotal;
         }
     }
     //round to two decimals
@@ -53,7 +40,7 @@ function styledTotal(roundedBill){
       //make orange
       color.classList.add("warning");
   } 
-  else if(currentTotal>50 )
+  else if(currentTotal>=50 )
   {//make red
 color.classList.add("danger");
   }
@@ -62,12 +49,10 @@ color.classList.add("danger");
 function calculateBtnClicked(){
     var billSt=enterTxt.value;
     const billTotal=totPhoneBill(billSt);
-    total.innerHTML = billTotal;
+    totalE.innerHTML = billTotal.toFixed(2);
     callTotalElement.innerHTML=(callsTotal).toFixed(2);
     smsTotalElement.innerHTML=(smsTotal).toFixed(2);
-    
-    
-   styledTotal(billTotal);
+    styledTotal(billTotal);
  
 }
     addBtn.addEventListener("click",calculateBtnClicked);

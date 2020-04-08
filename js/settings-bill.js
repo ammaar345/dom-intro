@@ -22,21 +22,25 @@ function TCostOfBill(billItemType) {
 
     // billItemType will be 'call' or 'sms'
 
-    if (billItemType === "call") {
+    if (billItemType === "call" ) {
+if(totalCostAll<critLevelTxt){
+    callTotalNew += callCostVal;}
 
-
-        callTotalNew += callCostVal;
-        totalCostAll += callCostVal;
+        
+        // totalCostAll += callCostVal;
     }
-    else if (billItemType === "sms") {
+    else if (billItemType === "sms" ) {
+if(totalCostAll<critLevelTxt){
+    smsTotalNew += smsCostVal;
+}
+else{totalCostAll=critLevelTxt}
 
-
-        smsTotalNew += smsCostVal;
-        totalCostAll += smsCostVal;
+        
+        // totalCostAll += smsCostVal;
     }
-//round to two decimals
-     var roundBill = totalCostAll.toFixed(2)
- return roundBill;
+    //round to two decimals
+    var roundBill = smsTotalNew + callTotalNew;//totalCostAll.toFixed(2)
+    return roundBill;
 }
 function styleofTotal(roundBill) {
     const current = Number(roundBill);
@@ -47,31 +51,39 @@ function styleofTotal(roundBill) {
         //make orange
         dangerLevel.classList.add("warning");
     }
-    else if (current > critLevelTxt) {
+
+    else if (current >= critLevelTxt ) {
         //make red
+
         dangerLevel.classList.add("danger");
+        totalCost = critLevelTxt;
+
     }
+    else if(current<warnLevel &&current<critLevelTxt){
+dangerLevel.classList.remove("danger")
+dangerLevel.classList.remove("warning")    
+}
+
 
 }
 function calcBtnClick() {
     // get a reference to the sms or call radio buttons
     var radioSmsCall = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     var item = radioSmsCall.value;
-TCostOfBill(item);
-callCostTotal.innerHTML = (callTotalNew.toFixed(2))
-    smsCostTotal.innerHTML = (smsTotalNew.toFixed(2));
-    totalCost.innerHTML = (totalCostAll).toFixed(2);//working
+    totalCostAll = TCostOfBill(item);
+ callCostTotal.innerHTML = (callTotalNew.toFixed(2))
+smsCostTotal.innerHTML = (smsTotalNew.toFixed(2));
+totalCost.innerHTML = (totalCostAll).toFixed(2);
     styleofTotal(totalCostAll);
+
 }
 function setValues() {
 
-    callTotalNew = 0;
-    smsTotalNew = 0;
-    totalCostAll = 0;
     callCostVal = Number(callCost.value);
     smsCostVal = Number(smsCost.value);
     warnLevelTxt = Number(warnLevel.value);
     critLevelTxt = (Number)(critLevel.value);
+    styleofTotal(totalCostAll)
     alert("Settings Updated.");
 }
 btnUpdate.addEventListener("click", setValues);

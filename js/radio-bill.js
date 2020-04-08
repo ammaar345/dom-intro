@@ -14,15 +14,15 @@ function tPhoneBill(billItemType) {
   // billItemType will be 'call' or 'sms'
      if (billItemType === "call") {     
 cTotal+=2.75;
-billTotal2+=2.75;
+//billTotal2+=2.75;
     }
     else if (billItemType === "sms") {       
 sTotal+=0.75;
-billTotal2+=0.75;
+//billTotal2+=0.75;
     }
 
     //round to two decimals
-    var roundBill = billTotal2.toFixed(2)
+    var roundBill = sTotal+cTotal;// billTotal2.toFixed(2)
     return roundBill;
 }
 function stylingTotal(roundBill) {
@@ -34,7 +34,7 @@ function stylingTotal(roundBill) {
         //make orange
         colorChanger.classList.add("warning");
     }
-    else if (currentTot > 50) {//make red
+    else if (currentTot >= 50) {//make red
         colorChanger.classList.add("danger");
     }
 
@@ -44,7 +44,7 @@ function calculateBtnClick() {
 // get a reference to the sms or call radio buttons
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     var billItemType = checkedRadioBtn.value;
-    tPhoneBill(billItemType);
+    billTotal2=tPhoneBill(billItemType);
     callTotal2.innerHTML=(cTotal).toFixed(2);
 smsTotal2.innerHTML=(sTotal).toFixed(2);
     total2.innerHTML = (billTotal2).toFixed(2);
