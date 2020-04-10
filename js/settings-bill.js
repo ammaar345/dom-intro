@@ -33,7 +33,7 @@ if(totalCostAll<critLevelTxt){
 if(totalCostAll<critLevelTxt){
     smsTotalNew += smsCostVal;
 }
-else{totalCostAll=critLevelTxt}
+
 
         
         // totalCostAll += smsCostVal;
