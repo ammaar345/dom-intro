@@ -1,5 +1,4 @@
 //get a reference to the calculate button
-let facCalcBill=calculateBillF();
 const btnCalculate=document.querySelector(".calculateBtn");
 //get a reference to the billTotal element
 const totalBill=document.querySelector(".billTotal");
@@ -8,6 +7,11 @@ const billStr=document.querySelector(".billString")
 //create the function that will be called when the calculate button is pressed
 var colorChange=document.querySelector(".total");
 function totalPhoneBill(billString){
+// logic goes here
+    
+
+//alert(billString)
+//split the string
 var billItems = billString.split(",");
 // a variable for the total phone bill.
 var billTotal = 0;
@@ -15,15 +19,16 @@ var billTotal = 0;
 for (var i=0;i<billItems.length;i++){
     var billItem = billItems[i].trim();
     if (billItem === "call"){
-       facCalcBill.callMaker();
+        billTotal += 2.75;
     }
     else if (billItem === "sms"){
-        facCalcBill.smsMaker();
+        billTotal += 0.75;
     }
 }
 
 //round to two decimals
-return facCalcBill.totalAdder();
+var roundedBillTotal = billTotal.toFixed(2);
+return roundedBillTotal;
 }
 function styleTotal(roundedBillTotal){ 
       const currTotal=Number(roundedBillTotal);
@@ -41,12 +46,10 @@ colorChange.classList.add("warning");
 }
 function calculateBtnClicked(){
     var billString=billStr.value;
-   // const roundedBillTotal=totalPhoneBill(billString);
-    //totalBill.innerHTML = roundedBillTotal;
-// styleTotal(roundedBillTotal);
-alert(facCalcBill.totalAdder(billString))
+    const roundedBillTotal=totalPhoneBill(billString);
+    totalBill.innerHTML = roundedBillTotal;
+ styleTotal(roundedBillTotal);
 }
-
     btnCalculate.addEventListener("click",calculateBtnClicked);
       
 //  * this function should read the string value entered - split it on a comma.
