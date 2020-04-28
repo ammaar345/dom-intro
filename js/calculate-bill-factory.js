@@ -1,4 +1,4 @@
-function calculateBill ()
+function calculateBillF ()
 { var criticalThresh=30;
     var warningThresh=20;
     var totalCallPr=0;
