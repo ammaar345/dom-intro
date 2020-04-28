@@ -43,7 +43,8 @@ return "warning"
         smsMaker,
         callMaker,
         getCallPriceVal,
-        getSmsPriceVal
+        getSmsPriceVal,
+        totalAdder
 
     }
 }

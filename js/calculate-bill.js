@@ -23,7 +23,7 @@ for (var i=0;i<billItems.length;i++){
 }
 
 //round to two decimals
-facCalcBill.totalAdder();
+return facCalcBill.totalAdder();
 }
 function styleTotal(roundedBillTotal){ 
       const currTotal=Number(roundedBillTotal);
@@ -41,9 +41,10 @@ colorChange.classList.add("warning");
 }
 function calculateBtnClicked(){
     var billString=billStr.value;
-    const roundedBillTotal=totalPhoneBill(billString);
-    totalBill.innerHTML = roundedBillTotal;
- styleTotal(roundedBillTotal);
+   // const roundedBillTotal=totalPhoneBill(billString);
+    //totalBill.innerHTML = roundedBillTotal;
+// styleTotal(roundedBillTotal);
+alert(facCalcBill.totalAdder(billString))
 }
 
     btnCalculate.addEventListener("click",calculateBtnClicked);
