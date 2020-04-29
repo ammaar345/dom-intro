@@ -1,17 +1,11 @@
-function textBill(){
+function TextBill(){
     var callPriceVal=2.75;
     var smsPriceVal=0.75;
     var warningVal=30;
     var criticalVal=50;
   var  callPriceTotal=0;
    var smsPriceTotal=0;
-function getSmsPrice(){
-return smsPriceVal;
-}
-function getCallPrice(){
-return callPriceVal;
 
-}
 
 function placeCall(){
    callPriceTotal+=callPriceVal;
@@ -50,8 +44,7 @@ function lvlName(){
 
 
    return{
-getCallPrice,
-getSmsPrice,
+
 placeCall,
 placeSms,
 getTotalCallPrice,

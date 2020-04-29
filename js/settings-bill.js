@@ -1,3 +1,4 @@
+let settingsBill=BillWithSettings()
 const callCost = document.querySelector(".callCostSetting");
 const smsCost = document.querySelector(".smsCostSetting");
 const warnLevel = document.querySelector(".warningLevelSetting");
@@ -9,13 +10,7 @@ const smsCostTotal = document.querySelector(".smsTotalSettings");
 const totalCost = document.querySelector(".totalSettings");
 const dangerLevel = document.querySelector(".colorCh");
 
-var callCostVal = 0;
-var smsCostVal = 0;
-var smsTotalNew = 0;
-var callTotalNew = 0;
-var totalCostAll = 0;
-var warnLevelTxt = 0;
-var critLevelTxt = 0;
+
 
 
 function TCostOfBill(billItemType) {
@@ -23,43 +18,43 @@ function TCostOfBill(billItemType) {
     // billItemType will be 'call' or 'sms'
 
     if (billItemType === "call" ) {
-if(totalCostAll<critLevelTxt){
-    callTotalNew += callCostVal;}
+
+   settingsBill.makeCall();}
 
         
         // totalCostAll += callCostVal;
-    }
+    
     else if (billItemType === "sms" ) {
-if(totalCostAll<critLevelTxt){
-    smsTotalNew += smsCostVal;
+
+    settingsBill.sendSms();
+  ;
 }
 
 
         
         // totalCostAll += smsCostVal;
-    }
+    
     //round to two decimals
-    var roundBill = smsTotalNew + callTotalNew;//totalCostAll.toFixed(2)
-    return roundBill;
+   
 }
 function styleofTotal(roundBill) {
     const current = Number(roundBill);
     dangerLevel.classList.remove("danger");
     dangerLevel.classList.remove("warning");
 
-    if (current >= warnLevelTxt && current < critLevelTxt) {
+    if (current >= settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
         //make orange
         dangerLevel.classList.add("warning");
     }
 
-    else if (current >= critLevelTxt ) {
+    else if (current >= settingsBill.getCriticalLevel() ) {
         //make red
 
         dangerLevel.classList.add("danger");
-        totalCost = critLevelTxt;
+        settingsBill.getTotalCost() = settingsBill.getCriticalLevel();
 
     }
-    else if(current<warnLevel &&current<critLevelTxt){
+    else if(current<settingsBill.getWarningLevel() &&current<settingsBill.getCriticalLevel()){
 dangerLevel.classList.remove("danger")
 dangerLevel.classList.remove("warning")    
 }
@@ -70,21 +65,22 @@ function calcBtnClick() {
     // get a reference to the sms or call radio buttons
     var radioSmsCall = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     var item = radioSmsCall.value;
-    totalCostAll = TCostOfBill(item);
- callCostTotal.innerHTML = (callTotalNew.toFixed(2))
-smsCostTotal.innerHTML = (smsTotalNew.toFixed(2));
-totalCost.innerHTML = (totalCostAll).toFixed(2);
-    styleofTotal(totalCostAll);
+     TCostOfBill(item);
+ callCostTotal.innerHTML = settingsBill.getTotalCallCost();
+smsCostTotal.innerHTML = settingsBill.getTotalSmsCost();
+totalCost.innerHTML = settingsBill.getTotalCost();
+
+    styleofTotal(settingsBill.getTotalCost());
 
 }
 function setValues() {
-
-    callCostVal = Number(callCost.value);
-    smsCostVal = Number(smsCost.value);
-    warnLevelTxt = Number(warnLevel.value);
-    critLevelTxt = (Number)(critLevel.value);
-    styleofTotal(totalCostAll);
+    callCostVal =(settingsBill.setCallCost(callCost.value));
+    smsCostVal = (settingsBill.setSmsCost(smsCost.value));
+    warnLevelTxt =(settingsBill.setWarningLevel(warnLevel.value));
+    critLevelTxt =(settingsBill.setCriticalLevel(critLevel.value));
+  //  styleofTotal(settingsBill.getTotalCost());
     alert("Settings Updated.");
+  //  alert(settingsBill.getCallCost())
 }
 btnUpdate.addEventListener("click", setValues);
 btnAdding.addEventListener("click", calcBtnClick);

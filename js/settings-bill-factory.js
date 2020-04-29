@@ -39,13 +39,13 @@ function BillWithSettings(){
             smsCostTotal+=theSmsCost}
      }
      function getTotalCallCost(){
-        return callCostTotal.toFixed(2);
+        return callCostTotal;
         }
         function getTotalSmsCost(){
-           return smsCostTotal.toFixed(2);
+           return smsCostTotal;
         }
      function getTotalCost(){
-     return (callCostTotal+smsCostTotal).toFixed(2);
+     return (callCostTotal+smsCostTotal)
      }
      function hasReachedCriticalLevel(){
          return getTotalCost()>=getCriticalLevel() 

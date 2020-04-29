@@ -1,4 +1,5 @@
 // get a reference to the textbox where the bill type is to be entered
+let textBill=TextBill();
 const enterTxt=document.querySelector(".billTypeText");
 //get a reference to the add button
 const addBtn=document.querySelector(".addToBillBtn");
@@ -17,19 +18,18 @@ function totPhoneBill(billSt){
     for (var i=0;i<billItems.length;i++){
         var billItem = billItems[i].trim();
         if (billItem === "call"){
-            callsTotal += 2.75;
-            bTotal+=2.75;
+            textBill.placeCall();
+          
             
         }
         else if (billItem === "sms"){
-            smsTotal += 0.75;
-            bTotal+=0.75;
+          textBill.placeSms();
+           
             
         }
     }
     //round to two decimals
-var roundedBill =bTotal.toFixed(2)
-return roundedBill;
+
 }
 function styledTotal(roundedBill){ 
     const currentTotal=Number(roundedBill);
@@ -47,14 +47,14 @@ color.classList.add("danger");
 
 }
 function calculateBtnClicked(){
-    var billSt=enterTxt.value;
-    const billTotal=totPhoneBill(billSt);
-    total.innerHTML = billTotal;
-    callTotalElement.innerHTML=(callsTotal).toFixed(2);
-    smsTotalElement.innerHTML=(smsTotal).toFixed(2);
+   var billSt=enterTxt.value;
+   // const billTotal=totPhoneBill(billSt);
+  totPhoneBill(billSt)
+   callTotalElement.innerHTML=textBill.getTotalCallPrice();;
+    smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
+    total.innerHTML = textBill.getTotalPrice();;
     
-    
-   styledTotal(billTotal);
+    styledTotal(textBill.getTotalPrice());
  
 }
     addBtn.addEventListener("click",calculateBtnClicked);

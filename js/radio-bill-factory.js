@@ -1,6 +1,6 @@
-function radioBill(){
- var priceS=2.75
- var priceC=0.75
+function RadioBill(){
+ var priceC=2.75
+ var priceS=0.75
  var priceCTotal=0
 var priceSTotal=0;
  var  wLvl=30
@@ -49,7 +49,8 @@ function getClsName(){
         getSPrice,
         sendS,
         makeC,
-        getSTotal
+        getSTotal,
+        getTotal
         
     }
 }
