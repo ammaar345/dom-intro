@@ -51,8 +51,7 @@ function styleofTotal(roundBill) {
         //make red
 
         dangerLevel.classList.add("danger");
-        settingsBill.getTotalCost() = settingsBill.getCriticalLevel();
-
+        
     }
     else if(current<settingsBill.getWarningLevel() &&current<settingsBill.getCriticalLevel()){
 dangerLevel.classList.remove("danger")
