@@ -2,8 +2,8 @@ describe("Tests Settings-Bill",function(){
     it("should be able to use the set call cost.",function(){
         let settingsBill=BillWithSettings();
         settingsBill.setCriticalLevel(10);
-        settingsBill.setCallCost(2.25);
-        settingsBill.setSmsCost(0.85);
+        settingsBill.setCallCost("2.25");
+        settingsBill.setSmsCost("0.85");
         settingsBill.makeCall();
         settingsBill.makeCall();
         settingsBill.makeCall();

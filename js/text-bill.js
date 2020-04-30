@@ -11,26 +11,6 @@ const color=document.querySelector(".red");
 bTotal=0;
 callsTotal=0;
 smsTotal=0;
-function totPhoneBill(billSt){
-    // logic goes here
-    var billItems = billSt.split(",");
-    // a variable for the total phone bill
-    for (var i=0;i<billItems.length;i++){
-        var billItem = billItems[i].trim();
-        if (billItem === "call"){
-            textBill.placeCall();
-          
-            
-        }
-        else if (billItem === "sms"){
-          textBill.placeSms();
-           
-            
-        }
-    }
-    //round to two decimals
-
-}
 function styledTotal(roundedBill){ 
     const currentTotal=Number(roundedBill);
     color.classList.remove("danger");
@@ -49,7 +29,7 @@ color.classList.add("danger");
 function calculateBtnClicked(){
    var billSt=enterTxt.value;
    // const billTotal=totPhoneBill(billSt);
-  totPhoneBill(billSt)
+ textBill.totPhoneBill(billSt)
    callTotalElement.innerHTML=textBill.getTotalCallPrice();;
     smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
     total.innerHTML = textBill.getTotalPrice();;

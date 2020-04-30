@@ -5,6 +5,15 @@ function RadioBill(){
 var priceSTotal=0;
  var  wLvl=30
 var cLvl=50;
+function tPhoneBill(billItemType) {
+    if (billItemType === "call") {     
+radioBill.makeC();
+  }
+   else if (billItemType === "sms") {       
+radioBill.sendS();
+}    
+}
+
     function getSPrice (){
 return priceS;
     }
@@ -41,7 +50,9 @@ function getClsName(){
        return "warning"
    }
 }
-    return{getCLevel,
+    return{
+        tPhoneBill,
+        getCLevel,
         getClsName,
         getCPrice,
         getCTotal,

@@ -5,7 +5,24 @@ function TextBill(){
     var criticalVal=50;
   var  callPriceTotal=0;
    var smsPriceTotal=0;
-
+   function totPhoneBill(billSt){
+      // logic goes here
+      var billItems = billSt.split(",");
+      // a variable for the total phone bill
+      for (var i=0;i<billItems.length;i++){
+          var billItem = billItems[i].trim();
+          if (billItem === "call"){
+              textBill.placeCall();
+            
+              
+          }
+          else if (billItem === "sms"){
+            textBill.placeSms();
+             
+              
+          }
+      }
+  }
 
 function placeCall(){
    callPriceTotal+=callPriceVal;
@@ -44,7 +61,7 @@ function lvlName(){
 
 
    return{
-
+totPhoneBill,
 placeCall,
 placeSms,
 getTotalCallPrice,

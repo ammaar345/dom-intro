@@ -1,26 +1,9 @@
 let radioBill=RadioBill();
-
-//get a reference to the add button
 const radAddBtn = document.querySelector(".radioBillAddBtn");
-//create a variable that will keep track of the total bill
 const callTotal2 = document.querySelector(".callTotalTwo");
 const smsTotal2 = document.querySelector(".smsTotalTwo");
 const total2 = document.querySelector(".totalTwo");
 const colorChanger = document.querySelector(".orange");
-function tPhoneBill(billItemType) {
-  // billItemType will be 'call' or 'sms'
-     if (billItemType === "call") {     
-radioBill.makeC();
-//billTotal2+=2.75;
-    }
-    else if (billItemType === "sms") {       
-radioBill.sendS();
-//billTotal2+=0.75;
-    }
-
-    //round to two decimals
-    
-}
 function stylingTotal(roundBill) {
     const currentTot = Number(roundBill);
     colorChanger.classList.remove("danger");
@@ -40,7 +23,7 @@ function calculateBtnClick() {
 // get a reference to the sms or call radio buttons
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     var billItemType = checkedRadioBtn.value;
-    tPhoneBill(billItemType);
+    radioBill.tPhoneBill(billItemType);
     callTotal2.innerHTML=radioBill.getCTotal();
 smsTotal2.innerHTML=radioBill.getSTotal();
     total2.innerHTML = radioBill.getTotal();

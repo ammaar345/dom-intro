@@ -9,27 +9,6 @@ const callCostTotal = document.querySelector(".callTotalSettings");
 const smsCostTotal = document.querySelector(".smsTotalSettings");
 const totalCost = document.querySelector(".totalSettings");
 const dangerLevel = document.querySelector(".colorCh");
-function TCostOfBill(billItemType) {
-
-    // billItemType will be 'call' or 'sms'
-
-    if (billItemType === "call") {
-
-        settingsBill.makeCall();
-    }
-    else if (billItemType === "sms") {
-
-        settingsBill.sendSms();
-        
-    }
-
-
-
-    // totalCostAll += smsCostVal;
-
-    //round to two decimals
-
-}
 function styleofTotal(roundBill) {
     const current = Number(roundBill);
     dangerLevel.classList.remove("danger");
@@ -56,19 +35,19 @@ function styleofTotal(roundBill) {
 function calcBtnClick() {
  var radioSmsCall = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     var item = radioSmsCall.value;
-    TCostOfBill(item);
-    callCostTotal.innerHTML = settingsBill.getTotalCallCost();
-    smsCostTotal.innerHTML = settingsBill.getTotalSmsCost();
-    totalCost.innerHTML = settingsBill.getTotalCost();
+    settingsBill.tCostOfBill(item);
+    callCostTotal.innerHTML =(settingsBill.getTotalCallCost());
+    smsCostTotal.innerHTML = (settingsBill.getTotalSmsCost());
+    totalCost.innerHTML =   ( settingsBill.getTotalCost());
 
     styleofTotal(settingsBill.getTotalCost());
 
 }
 function setValues() {
      settingsBill.setCallCost(callCost.value);
-    settingsBill.setSmsCost(smsCost.value);
-    settingsBill.setWarningLevel(warnLevel.value);
-    settingsBill.setCriticalLevel(critLevel.value)
+  settingsBill.setSmsCost(smsCost.value);
+   settingsBill.setWarningLevel(warnLevel.value);
+ settingsBill.setCriticalLevel(critLevel.value)
     alert("Settings Updated.");
 }
 btnUpdate.addEventListener("click", setValues);
