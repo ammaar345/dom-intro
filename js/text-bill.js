@@ -16,7 +16,7 @@ function calculateBtnClicked(){
    smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
    total.innerHTML = textBill.getTotalPrice();;
    
-   textBill.styledTotal(textBill.getTotalPrice());
+   textBill.styledTotal();
 
 }
 

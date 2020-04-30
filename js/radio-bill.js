@@ -14,7 +14,7 @@ var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked
     smsTotal2.innerHTML=radioBill.getSTotal();
         total2.innerHTML = radioBill.getTotal();
     
-        radioBill.stylingTotal(radioBill.getTotal());
+        radioBill.stylingTotal();
     }
 
 radAddBtn.addEventListener("click", calculateBtnClick);

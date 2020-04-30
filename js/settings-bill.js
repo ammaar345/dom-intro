@@ -26,7 +26,7 @@ function setValues() {
    settingsBill.setWarningLevel(warnLevel.value);
  settingsBill.setCriticalLevel(critLevel.value)
     alert("Settings Updated.");
-    settingsBill.styleofTotal(settingsBill.getTotalCost());
+    settingsBill.styleofTotal();
 }
 btnUpdate.addEventListener("click", setValues);
 btnAdding.addEventListener("click", calcBtnClick);
