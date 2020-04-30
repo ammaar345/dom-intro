@@ -10,18 +10,13 @@ const total=document.querySelector(".totalOne");
 const color=document.querySelector(".red");
 
 function calculateBtnClicked(){
-   var billSt=enterTxt.value;
-   // const billTotal=totPhoneBill(billSt);
-  textBill.totPhoneBill(billSt)
-   callTotalElement.innerHTML=textBill.getTotalCallPrice();;
-    smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
-    total.innerHTML = textBill.getTotalPrice();;
-    
-    textBill.styledTotal(textBill.getTotalPrice());
- 
+  var billSt=enterTxt.value;
+  var total=textBill.getTotalPrice()
+ textBill.totPhoneBill(billSt)
+  callTotalElement.innerHTML=textBill.getTotalCallPrice();;
+   smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
+   total.innerHTML = textBill.getTotalPrice();;
+
 }
-    addBtn.addEventListener("click",calculateBtnClicked);
-//in the event listener check if the value in the bill type textbox is 'sms' or 'call'
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen
+
+    addBtn.addEventListener("click",textBill.calculateBtnClicked());

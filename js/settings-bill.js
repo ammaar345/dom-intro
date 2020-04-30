@@ -9,38 +9,15 @@ const callCostTotal = document.querySelector(".callTotalSettings");
 const smsCostTotal = document.querySelector(".smsTotalSettings");
 const totalCost = document.querySelector(".totalSettings");
 const dangerLevel = document.querySelector(".colorCh");
-function styleofTotal(roundBill) {
-    const current = Number(roundBill);
-    dangerLevel.classList.remove("danger");
-    dangerLevel.classList.remove("warning");
-
-    if (current >= settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
-        //make orange
-        dangerLevel.classList.add("warning");
-    }
-
-    else if (current >= settingsBill.getCriticalLevel()) {
-        //make red
-
-        dangerLevel.classList.add("danger");
-
-    }
-    else if (current < settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
-        dangerLevel.classList.remove("danger")
-        dangerLevel.classList.remove("warning")
-    }
-
-
-}
 function calcBtnClick() {
  var radioSmsCall = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     var item = radioSmsCall.value;
     settingsBill.tCostOfBill(item);
-    callCostTotal.innerHTML =(settingsBill.getTotalCallCost());
-    smsCostTotal.innerHTML = (settingsBill.getTotalSmsCost());
-    totalCost.innerHTML =   ( settingsBill.getTotalCost());
+    callCostTotal.innerHTML =settingsBill.getTotalCallCost();
+    smsCostTotal.innerHTML = settingsBill.getTotalSmsCost();
+    totalCost.innerHTML =    settingsBill.getTotalCost();
 
-    styleofTotal(settingsBill.getTotalCost());
+    settingsBill.styleofTotal(settingsBill.getTotalCost());
 
 }
 function setValues() {

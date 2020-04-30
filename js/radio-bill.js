@@ -4,32 +4,19 @@ const callTotal2 = document.querySelector(".callTotalTwo");
 const smsTotal2 = document.querySelector(".smsTotalTwo");
 const total2 = document.querySelector(".totalTwo");
 const colorChanger = document.querySelector(".orange");
-function stylingTotal(roundBill) {
-    const currentTot = Number(roundBill);
-    colorChanger.classList.remove("danger");
-    colorChanger.classList.remove("warning");
-
-    if (currentTot >= 30 && currentTot < 50) {
-        //make orange
-        colorChanger.classList.add("warning");
-    }
-    else if (currentTot >= 50) {//make red
-        colorChanger.classList.add("danger");
-    }
-
-}
-
 function calculateBtnClick() {
-// get a reference to the sms or call radio buttons
-    var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+    // get a reference to the sms or call radio buttons
+    
+var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     var billItemType = checkedRadioBtn.value;
-    radioBill.tPhoneBill(billItemType);
-    callTotal2.innerHTML=radioBill.getCTotal();
-smsTotal2.innerHTML=radioBill.getSTotal();
-    total2.innerHTML = radioBill.getTotal();
+        radioBill.tPhoneBill(billItemType);
+        callTotal2.innerHTML=radioBill.getCTotal();
+    smsTotal2.innerHTML=radioBill.getSTotal();
+        total2.innerHTML = radioBill.getTotal();
+    
+        radioBill.stylingTotal(radioBill.getTotal());
+    }
 
-    stylingTotal(radioBill.getTotal());
-}
 radAddBtn.addEventListener("click", calculateBtnClick);
 //add an event listener for when the add button is pressed
 

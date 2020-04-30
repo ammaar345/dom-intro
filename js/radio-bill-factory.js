@@ -41,6 +41,22 @@ priceCTotal+=priceC
 function sendS(){
     priceSTotal+=priceS
 }
+function stylingTotal(roundBill) {
+    const currentTot = Number(roundBill);
+    colorChanger.classList.remove("danger");
+    colorChanger.classList.remove("warning");
+
+    if (currentTot >= 30 && currentTot < 50) {
+        //make orange
+        colorChanger.classList.add("warning");
+    }
+    else if (currentTot >= 50) {//make red
+        colorChanger.classList.add("danger");
+    }
+
+}
+
+
 function getClsName(){
    if (getTotal()>getCLevel){
        return "critical"
@@ -60,8 +76,8 @@ function getClsName(){
         getSPrice,
         sendS,
         makeC,
+        stylingTotal,
         getSTotal,
         getTotal
-        
     }
 }

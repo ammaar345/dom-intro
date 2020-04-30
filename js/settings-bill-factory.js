@@ -16,6 +16,31 @@ function BillWithSettings(){
                 
             }
         }
+
+        function styleofTotal(roundBill) {
+            const current = Number(roundBill);
+            dangerLevel.classList.remove("danger");
+            dangerLevel.classList.remove("warning");
+        
+            if (current >= settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
+                //make orange
+                dangerLevel.classList.add("warning");
+            }
+        
+            else if (current >= settingsBill.getCriticalLevel()) {
+                //make red
+        
+                dangerLevel.classList.add("danger");
+        
+            }
+            else if (current < settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
+                dangerLevel.classList.remove("danger")
+                dangerLevel.classList.remove("warning")
+            }
+        
+        
+        }
+        
         
         function setCallCost(callCost){
     theCallCost=Number(callCost);
@@ -89,6 +114,7 @@ function BillWithSettings(){
        getTotalCallCost,
         getTotalSmsCost,
         getTotalCost   ,
+        styleofTotal,
         totalClassName ,
         hasReachedCriticalLevel
         }

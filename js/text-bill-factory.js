@@ -77,7 +77,8 @@ color.classList.add("danger");
  }
 
 }
-   return{
+
+  return{
 totPhoneBill,
 styledTotal,
 placeCall,
@@ -86,6 +87,5 @@ getTotalCallPrice,
 getTotalSmsPrice,
 getTotalPrice,
 lvlName
-
    } 
 }
