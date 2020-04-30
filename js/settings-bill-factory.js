@@ -29,6 +29,10 @@ function BillWithSettings(){
         function getCriticalLevel(){
     return theCriticalLevel;
         }
+        
+     function hasReachedCriticalLevel(){
+        return getTotalCost()>=getCriticalLevel() 
+    }
         function makeCall(){
             if (!hasReachedCriticalLevel()){
      callCostTotal+=theCallCost}
@@ -45,10 +49,7 @@ function BillWithSettings(){
            return smsCostTotal;
         }
      function getTotalCost(){
-     return (callCostTotal+smsCostTotal)
-     }
-     function hasReachedCriticalLevel(){
-         return getTotalCost()>=getCriticalLevel() 
+     return (callCostTotal+smsCostTotal);
      }
      function totalClassName(){
         if(hasReachedCriticalLevel()){
