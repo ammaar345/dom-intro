@@ -41,16 +41,15 @@ priceCTotal+=priceC
 function sendS(){
     priceSTotal+=priceS
 }
-function stylingTotal(roundBill) {
-    const currentTot = Number(roundBill);
+function stylingTotal() {
     colorChanger.classList.remove("danger");
     colorChanger.classList.remove("warning");
 
-    if (currentTot >= 30 && currentTot < 50) {
+    if (radioBill.getTotal() >= 30 &&radioBill.getTotal() < 50) {
         //make orange
         colorChanger.classList.add("warning");
     }
-    else if (currentTot >= 50) {//make red
+    else if (radioBill.getTotal() >= 50) {//make red
         colorChanger.classList.add("danger");
     }
 

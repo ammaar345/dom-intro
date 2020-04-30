@@ -17,17 +17,16 @@ function BillWithSettings(){
             }
         }
 
-        function styleofTotal(roundBill) {
-            const current = Number(roundBill);
-            dangerLevel.classList.remove("danger");
+        function styleofTotal() {
+           dangerLevel.classList.remove("danger");
             dangerLevel.classList.remove("warning");
         
-            if (current >= settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
+            if (settingsBill.getTotalCost() >= settingsBill.getWarningLevel() && settingsBill.getTotalCost() < settingsBill.getCriticalLevel()) {
                 //make orange
                 dangerLevel.classList.add("warning");
             }
         
-            else if (current >= settingsBill.getCriticalLevel()) {
+            else if (settingsBill.getTotalCost() >= settingsBill.getCriticalLevel()) {
                 //make red
         
                 dangerLevel.classList.add("danger");

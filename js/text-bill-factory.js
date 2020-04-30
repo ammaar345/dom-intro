@@ -62,16 +62,15 @@ function lvlName(){
 }
 
 
-function styledTotal(roundedBill){ 
-   const currentTotal=Number(roundedBill);
+function styledTotal(){ 
    color.classList.remove("danger");
    color.classList.remove("warning");
    
- if(currentTotal>=30 && currentTotal<50){
+ if(textBill.getTotalPrice()>=30 && textBill.getTotalPrice()<50){
      //make orange
      color.classList.add("warning");
  } 
- else if(currentTotal>50 )
+ else if(textBill.getTotalPrice()>50 )
  {//make red
 color.classList.add("danger");
  }
