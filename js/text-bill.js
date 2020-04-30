@@ -19,4 +19,4 @@ function calculateBtnClicked(){
 
 }
 
-    addBtn.addEventListener("click",textBill.calculateBtnClicked());
+    addBtn.addEventListener("click",textBill.calculateBtnClicked);
