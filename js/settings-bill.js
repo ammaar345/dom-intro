@@ -17,7 +17,7 @@ function calcBtnClick() {
     smsCostTotal.innerHTML = settingsBill.getTotalSmsCost();
     totalCost.innerHTML =    settingsBill.getTotalCost();
 
-    settingsBill.styleofTotal(settingsBill.getTotalCost());
+    styleApply();
 
 }
 function setValues() {
@@ -26,7 +26,13 @@ function setValues() {
    settingsBill.setWarningLevel(warnLevel.value);
  settingsBill.setCriticalLevel(critLevel.value)
     alert("Settings Updated.");
-    settingsBill.styleofTotal();
+    styleApply();
+}
+function styleApply(){
+   dangerLevel.classList.remove("danger");
+   dangerLevel.classList.remove("warning");
+dangerLevel.classList.add(settingsBill.styleofTotal())
+
 }
 btnUpdate.addEventListener("click", setValues);
 btnAdding.addEventListener("click", calcBtnClick);

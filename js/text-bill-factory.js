@@ -63,16 +63,14 @@ function lvlName(){
 
 
 function styledTotal(){ 
-   color.classList.remove("danger");
-   color.classList.remove("warning");
    
  if(textBill.getTotalPrice()>=30 && textBill.getTotalPrice()<50){
      //make orange
-     color.classList.add("warning");
+     return "warning"
  } 
  else if(textBill.getTotalPrice()>50 )
  {//make red
-color.classList.add("danger");
+return "danger";
  }
 
 }

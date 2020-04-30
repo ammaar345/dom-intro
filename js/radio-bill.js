@@ -13,9 +13,16 @@ var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked
         callTotal2.innerHTML=radioBill.getCTotal();
     smsTotal2.innerHTML=radioBill.getSTotal();
         total2.innerHTML = radioBill.getTotal();
-    
-        radioBill.stylingTotal();
+    stylingTotalApplication();
+        ;
     }
+    function stylingTotalApplication() {
+
+        colorChanger.classList.remove("danger");
+        colorChanger.classList.remove("warning");
+          colorChanger.classList.add(radioBill.stylingTotal());
+    }
+    
 
 radAddBtn.addEventListener("click", calculateBtnClick);
 //add an event listener for when the add button is pressed

@@ -18,24 +18,18 @@ function BillWithSettings(){
         }
 
         function styleofTotal() {
-           dangerLevel.classList.remove("danger");
-            dangerLevel.classList.remove("warning");
-        
             if (settingsBill.getTotalCost() >= settingsBill.getWarningLevel() && settingsBill.getTotalCost() < settingsBill.getCriticalLevel()) {
                 //make orange
-                dangerLevel.classList.add("warning");
+                return "warning";
             }
         
             else if (settingsBill.getTotalCost() >= settingsBill.getCriticalLevel()) {
                 //make red
         
-                dangerLevel.classList.add("danger");
+                return "danger";
         
             }
-            else if (current < settingsBill.getWarningLevel() && current < settingsBill.getCriticalLevel()) {
-                dangerLevel.classList.remove("danger")
-                dangerLevel.classList.remove("warning")
-            }
+            
         
         
         }

@@ -42,15 +42,15 @@ function sendS(){
     priceSTotal+=priceS
 }
 function stylingTotal() {
-    colorChanger.classList.remove("danger");
-    colorChanger.classList.remove("warning");
 
     if (radioBill.getTotal() >= 30 &&radioBill.getTotal() < 50) {
         //make orange
-        colorChanger.classList.add("warning");
+      return "warning"
+        //  colorChanger.classList.add("warning");
     }
-    else if (radioBill.getTotal() >= 50) {//make red
-        colorChanger.classList.add("danger");
+    else if (radioBill.getTotal() >= 50) {
+        return "danger"
+        //colorChanger.classList.add("danger");
     }
 
 }

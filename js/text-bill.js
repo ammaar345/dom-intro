@@ -15,9 +15,14 @@ function calculateBtnClicked(){
   callTotalElement.innerHTML=textBill.getTotalCallPrice();;
    smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
    total.innerHTML = textBill.getTotalPrice();;
-   
-   textBill.styledTotal();
+   styledApplic()
 
+}
+function styledApplic(){
+  
+  color.classList.remove("danger");
+  color.classList.remove("warning");
+color.classList.add(textBill.styledTotal())
 }
 
     addBtn.addEventListener("click",calculateBtnClicked);
