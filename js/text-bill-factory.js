@@ -22,7 +22,10 @@ function TextBill(){
               
           }
       }
+      //round to two decimals
+  
   }
+  
 
 function placeCall(){
    callPriceTotal+=callPriceVal;

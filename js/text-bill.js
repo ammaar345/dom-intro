@@ -8,9 +8,6 @@ const callTotalElement=document.querySelector(".callTotalOne");
 const smsTotalElement=document.querySelector(".smsTotalOne");
 const total=document.querySelector(".totalOne");
 const color=document.querySelector(".red");
-bTotal=0;
-callsTotal=0;
-smsTotal=0;
 function styledTotal(roundedBill){ 
     const currentTotal=Number(roundedBill);
     color.classList.remove("danger");
@@ -29,7 +26,7 @@ color.classList.add("danger");
 function calculateBtnClicked(){
    var billSt=enterTxt.value;
    // const billTotal=totPhoneBill(billSt);
- textBill.totPhoneBill(billSt)
+  textBill.totPhoneBill(billSt)
    callTotalElement.innerHTML=textBill.getTotalCallPrice();;
     smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
     total.innerHTML = textBill.getTotalPrice();;
