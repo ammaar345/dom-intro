@@ -13,10 +13,10 @@ function calculateBtnClicked(){
   var billSt=enterTxt.value;
   var total=textBill.getTotalPrice()
  textBill.totPhoneBill(billSt)
-  callTotalElement.innerHTML=textBill.getTotalCallPrice();;
+ callTotalElement.innerHTML=textBill.getTotalCallPrice();;
    smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
    total.innerHTML = textBill.getTotalPrice();;
-
+textBill.styledTotal(total);
 }
 
     addBtn.addEventListener("click",calculateBtnClicked);
