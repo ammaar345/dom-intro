@@ -8,21 +8,7 @@ const callTotalElement=document.querySelector(".callTotalOne");
 const smsTotalElement=document.querySelector(".smsTotalOne");
 const total=document.querySelector(".totalOne");
 const color=document.querySelector(".red");
-function styledTotal(roundedBill){ 
-    const currentTotal=Number(roundedBill);
-    color.classList.remove("danger");
-    color.classList.remove("warning");
-    
-  if(currentTotal>=30 && currentTotal<50){
-      //make orange
-      color.classList.add("warning");
-  } 
-  else if(currentTotal>50 )
-  {//make red
-color.classList.add("danger");
-  }
 
-}
 function calculateBtnClicked(){
    var billSt=enterTxt.value;
    // const billTotal=totPhoneBill(billSt);
@@ -31,7 +17,7 @@ function calculateBtnClicked(){
     smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
     total.innerHTML = textBill.getTotalPrice();;
     
-    styledTotal(textBill.getTotalPrice());
+    textBill.styledTotal(textBill.getTotalPrice());
  
 }
     addBtn.addEventListener("click",calculateBtnClicked);

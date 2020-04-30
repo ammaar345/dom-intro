@@ -62,9 +62,24 @@ function lvlName(){
 }
 
 
+function styledTotal(roundedBill){ 
+   const currentTotal=Number(roundedBill);
+   color.classList.remove("danger");
+   color.classList.remove("warning");
+   
+ if(currentTotal>=30 && currentTotal<50){
+     //make orange
+     color.classList.add("warning");
+ } 
+ else if(currentTotal>50 )
+ {//make red
+color.classList.add("danger");
+ }
 
+}
    return{
 totPhoneBill,
+styledTotal,
 placeCall,
 placeSms,
 getTotalCallPrice,
