@@ -11,12 +11,13 @@ const color=document.querySelector(".red");
 
 function calculateBtnClicked(){
   var billSt=enterTxt.value;
-  var total=textBill.getTotalPrice()
- textBill.totPhoneBill(billSt)
- callTotalElement.innerHTML=textBill.getTotalCallPrice();;
+  textBill.totPhoneBill(billSt)
+  callTotalElement.innerHTML=textBill.getTotalCallPrice();;
    smsTotalElement.innerHTML=textBill.getTotalSmsPrice();
    total.innerHTML = textBill.getTotalPrice();;
-textBill.styledTotal(total);
+   
+   textBill.styledTotal(textBill.getTotalPrice());
+
 }
 
     addBtn.addEventListener("click",calculateBtnClicked);
